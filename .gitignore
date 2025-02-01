@@ -1,0 +1,7 @@
+*.vscode
+*.exe
+*.clangd
+*.in
+*.out
+input.txt
+output.txt
