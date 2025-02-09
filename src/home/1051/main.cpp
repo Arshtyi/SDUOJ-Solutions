@@ -8,32 +8,24 @@ int main(){
         freopen("data.in", "r", stdin);
         freopen("data.out", "w", stdout);
     #endif
-    cin>>n;cin.ignore();
-    getline(cin,s);
+    cin>>n>>s;
     while (n--)
     {
-        string op;getline(cin,op);
-        if(op[0] == '1'){
-            s += op.substr(2);
-            cout << s << endl;
-        }else if(op[0] == '2'){
-            int a, b;
-            sscanf(op.c_str(), "2 %d %d", &a, &b);
-            s = s.substr(a, b);
-            cout << s << endl;
-        }else if(op[0] == '3'){
-            int a;sscanf(op.c_str(), "3 %d", &a);
-            string t = op.substr(2 + to_string(a).length() + 1);
-            s.insert(a, t);
-            cout << s << endl;
-        }else if(op[0] == '4'){
-            string t = op.substr(2);
-            size_t pos = s.find(t);
-            if(pos != string::npos){
-                cout << pos << endl;
-            }else{
-                cout << -1 << endl;
-            }
+        int op;cin >> op;
+        if(op == 1){
+            string t;cin >> t;s += t;cout << s << endl;
+        }
+        if(op == 2){
+            int a, b;cin >> a >> b;s=s.substr(a, b);cout << s << endl;
+        }
+        if(op == 3){
+            int a;string t;cin >> a >> t;
+            s.insert(a, t);cout << s << endl;
+        }
+        if(op == 4){
+            string t;cin >> t;size_t pos = s.find(t);
+            if(pos != string::npos)cout << pos << endl;
+            else cout << -1 << endl;
         }
     }
     return 0;
