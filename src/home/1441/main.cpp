@@ -12,15 +12,6 @@ struct Node
     }
 };
 vector<Node> s(N);
-// struct GG
-// {
-//     ll a;
-//     bool cmp(const GG &other) const
-//     {
-//         return a < other.a;
-//     }
-// };
-
 priority_queue<ll, vector<ll>, greater<ll>> q;
 ll ans = 0, now = 0;
 signed main()
@@ -46,7 +37,6 @@ signed main()
         {
             ans += s[i].profit - q.top();
             q.pop();
-            q.push(s[i].profit);
         }
     }
     cout << ans << "\n";
