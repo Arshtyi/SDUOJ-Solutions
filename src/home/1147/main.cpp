@@ -1,47 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 10;
-bool directions[N];
-int locations[N];
-int main(){
-    int T;cin >> T;
+struct Node
+{
+    int location;
+    bool direction;
+    Node(int location = 0, bool direction = 0) : location(location), direction(direction) {}
+};
+vector<Node> nodes(N);
+int main()
+{
+    int T;
+    cin >> T;
     while (T--)
     {
-        int n;cin >> n;
-        for(int i = 1;i <= n;i ++){
-            char c;cin >> c;
-            directions[i] = (c == 'L') ? 0 : 1;//左零右一
-        }
-        for(int i = 1;i <= n;i ++){
-            cin >> locations[i];
-        }
-        int gap = 0;
-        for(int i = 1;i < n;i ++){
-            if(directions[i] != directions[i + 1]){
-                gap ++;
-            }
-        }
-        if(gap == 0 || gap == 1){
-            cout << -1 << endl;
-            continue;
-        }
-        int cnt = 0;
-        bool flag = 0;
-        while (1)
+        int n;
+        cin >> n;
+        for (int i = 1; i <= n; i++)
         {
-            cnt++;
-            for(int i = 1;i <= n;i ++){
-                locations[i] += (directions[i] ? 1 : -1);
-            }
-            for(int i = 1;i < n;i ++){
-                if(locations[i] == locations[i + 1]){
-                    cout << cnt << endl;
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag) break;
+            char c;
+            cin >> c;
+            nodes[i].direction = (c == 'R' ? 1 : 0);
         }
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> nodes[i].location;
+        }
+        int ans = INT_MAX;
+        for (int i = 1; i < n; ++i)
+        {
+            if (nodes[i].direction == 1 && nodes[i + 1].direction == 0)
+            {
+                ans = min(ans, (nodes[i + 1].location - nodes[i].location) / 2);
+            }
+        }
+        cout << (ans == INT_MAX ? -1 : ans) << endl;
     }
     return 0;
 }

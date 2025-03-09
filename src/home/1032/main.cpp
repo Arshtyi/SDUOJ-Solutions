@@ -3,6 +3,7 @@
 using namespace std;
 bool isPrime(int n);
 int main(){
+  cout<<1<<endl;
     int x;cin >> x;
     while (cin >> x)if(isPrime(x)) cout << x << " " ;
     return 0;
