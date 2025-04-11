@@ -1,77 +1,36 @@
-#define LOCAL
 #include <bits/stdc++.h>
 using namespace std;
-#define endl "\n"
-int n, t, s;
-vector<string> names;
+typedef long long ll;
+#define FOR(i, a, b) for (int i = (a); i <= (b); ++i)
+#define ROF(i, a, b) for (int i = (a); i >= (b); --i)
+#define notie cin.tie(0), cout.tie(0), ios::sync_with_stdio(0)
+#define endl '\n'
+#define pb push_back
+#define mkp make_pair
+#define fi first
+#define se second
+#define cs const
+#define db double
+#define ld long double
+#define fl float
+#define vec vector
+#define all(x) (x).begin(), (x).end()
+// #define int long long
+#define LOCAL freopen("data.in", "r", stdin), freopen("data.out", "w", stdout)
+void solve()
+{
+    int n, t, s;
+}
 signed main()
 {
-    cin.tie(0);
-    cout.tie(0);
-    ios::sync_with_stdio(0);
-#ifdef LOCAL
-    freopen("data.in", "r", stdin);
-    freopen("data.out", "w", stdout);
-#endif
-    cin >> n >> t >> s;
-    cin.ignore();
-    while (n--)
+    LOCAL;
+    notie;
+    int T = 1;
+    // cin >> T
+    while (T--)
     {
-        string info;
-        char ch;
-        while (cin.get(ch) && ch != '\n')
-        {
-            info += ch;
-        }
-        // cout << info << endl;
-        string name;
-        size_t posName = info.find("use");
-        name = info.substr(0, posName - 1);
-        // cout << info << endl;
-        size_t posUse = info.find("use") + 4;
-        size_t firstComma = info.find(',');
-        string Weapon = info.substr(posUse, firstComma - posUse - 1);
-        transform(Weapon.begin(), Weapon.end(), Weapon.begin(), ::toupper);
-        // cout << Weapon << endl;
-        bool hited = Weapon.find("AK") != string::npos;
-        size_t posHit = info.find("hit");
-        if (!hited)
-        {
-            continue;
-        }
-        size_t pos = posHit;
-        while (true)
-        {
-            size_t nextComma = info.find(',', pos + 1);
-            if (nextComma == string::npos)
-            {
-                nextComma = info.find('.', pos + 1);
-                if (nextComma == string::npos)
-                {
-                    break;
-                }
-            }
-            string segment = info.substr(pos + 4, nextComma - pos - 4);
-            if (segment == "ash")
-            {
-                t -= s;
-                names.push_back(name);
-                break;
-            }
-            pos = nextComma;
-        }
+        solve();
     }
-    if (t <= 0)
-    {
-        cout << "Heros never die." << endl;
-    }
-    else
-    {
-        cout << names.size() << endl;
-        for (auto name : names)
-        {
-            cout << name << endl;
-        }
-    }
+
     return 0;
 }
