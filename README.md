@@ -1,7 +1,9 @@
+<!-- @format -->
+
 # Project Introduction
 
--   [SDUOJ](https://oj.qd.sdu.edu.cn/v2/home "SDUOJ") solutions, including solutions for homepage problems and classroom tests.
--   Homepage solutions generally don't include problem descriptions, while classroom tests usually do.
+-   [SDUOJ](https://oj.qd.sdu.edu.cn/v2/home "SDUOJ") solutions, including solutions for homepage problems ~~and classroom tests.~~
+-   Homepage solutions generally don't include problem descriptions~~, while classroom tests usually do.~~
 -   For code completion problems, complete solutions are typically provided.
 -   Missing or incomplete solutions indicate that the author hasn't solved them yet.
 
